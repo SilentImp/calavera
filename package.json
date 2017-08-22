@@ -1,0 +1,22 @@
+{
+  "name": "gitlab-merge-request",
+  "version": "1.0.0",
+  "description": "Make gitlab merge request from command line",
+  "main": "mr.js",
+  "scripts": {
+    "mr": "node ./mr.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://gitlab.com/TemplateMonster/PlasmaPlatform/Frontend/MergeRequest.git"
+  },
+  "bin": {
+    "mr": "./mr.js"
+  },
+  "author": "Anton Nemtsev",
+  "license": "CC",
+  "dependencies": {
+    "command-line-args": "^4.0.7",
+    "got": "^7.0.0"
+  }
+}
