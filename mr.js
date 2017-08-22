@@ -4,6 +4,7 @@ const got = require('got');
 const commandLineArgs = require('command-line-args');
 
 (async ()=>{
+  const API_URL = 'https://gitlab.com/api/v4/';
   const optionDefinitions = [
     { name: 'path', alias: 'p', type: String }, // TemplateMonster/PlasmaPlatform/Frontend/Plasma-Vendors
     { name: 'token', alias: 'a', type: String }, // From user profile
@@ -26,20 +27,13 @@ const commandLineArgs = require('command-line-args');
   const token = (options.token !== undefined) ? options.token : process.env.GITLAB_TOKEN;
   if (token === undefined) throw Error('Token undefined');
 
-  const response = await got(`https://gitlab.com/api/v4/projects/${encodeURIComponent(path)}`,{
+  const response = await got(`${API_URL}projects/${encodeURIComponent(path)}`,{
     headers: {'PRIVATE-TOKEN': token}
   });
   const projectID = (JSON.parse(response.body)).id;
   if (projectID === undefined) throw Error('Wrong project path');
 
-  console.log('data: ', {
-    id: projectID,
-    source_branch: options.from,
-    target_branch: options.to,
-    title: options.message,
-  });
-
-  const result = await got.post(`https://gitlab.com/api/v4/projects/${projectID}/merge_requests`,{
+  const result = await got.post(`${API_URL}projects/${projectID}/merge_requests`,{
     headers: {
       'PRIVATE-TOKEN': token,
       'Content-Type': 'application/json'
