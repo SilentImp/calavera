@@ -1,7 +1,3 @@
-# GitlLab Merge Request CLI
+# Calavera
 
-Simple tool to make gitlab merge request
-
-You should create `../.env` file with variables inside:
-
-GITLAB_TOKEN=…
+This cool thing just type “Calavera” in console.

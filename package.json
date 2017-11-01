@@ -1,20 +1,18 @@
 {
-  "name": "gitlab-merge-request",
-  "version": "1.1.0",
-  "description": "Make gitlab merge request from command line",
-  "main": "mr.js",
+  "name": "calavera",
+  "version": "1.0.0",
+  "description": "Say “Callavera”",
+  "main": "index.js",
   "scripts": {
-    "mr": "node ./mr.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://gitlab.com/TemplateMonster/PlasmaPlatform/Frontend/MergeRequest.git"
+    "release": "npm version patch && npm publish && git push --follow-tags",
+    "start": "npm run calavera",
+    "calavera": "node ./index.js"
   },
   "bin": {
-    "mr": "./mr.js"
+    "calavera": "./index.js"
   },
-  "author": "Anton Nemtsev",
-  "license": "CC",
+  "author": "Anton Nemtsev <thesilentimp@gmail.com>",
+  "license": "CC-BY-4.0",
   "dependencies": {
     "command-line-args": "^4.0.7",
     "got": "^7.0.0"
